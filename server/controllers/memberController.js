@@ -1,6 +1,5 @@
 
 const Member = require('../models/Member');
-
 // Get all members
 exports.getAllMembers = async (req, res) => {
   try {
@@ -10,7 +9,6 @@ exports.getAllMembers = async (req, res) => {
     res.status(500).json({ message: 'Error fetching members', error: error.message });
   }
 };
-
 // Get a single member
 exports.getMemberById = async (req, res) => {
   try {
@@ -23,7 +21,6 @@ exports.getMemberById = async (req, res) => {
     res.status(500).json({ message: 'Error fetching member', error: error.message });
   }
 };
-
 // Create a new member
 exports.createMember = async (req, res) => {
   try {
@@ -34,7 +31,6 @@ exports.createMember = async (req, res) => {
     res.status(400).json({ message: 'Error creating member', error: error.message });
   }
 };
-
 // Update a member
 exports.updateMember = async (req, res) => {
   try {
@@ -43,6 +39,7 @@ exports.updateMember = async (req, res) => {
       req.body,
       { new: true, runValidators: true }
     );
+
     if (!updatedMember) {
       return res.status(404).json({ message: 'Member not found' });
     }
@@ -51,7 +48,6 @@ exports.updateMember = async (req, res) => {
     res.status(400).json({ message: 'Error updating member', error: error.message });
   }
 };
-
 // Delete a member
 exports.deleteMember = async (req, res) => {
   try {
@@ -64,3 +60,4 @@ exports.deleteMember = async (req, res) => {
     res.status(500).json({ message: 'Error deleting member', error: error.message });
   }
 };
+

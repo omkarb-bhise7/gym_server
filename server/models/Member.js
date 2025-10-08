@@ -1,3 +1,4 @@
+const { image } = require('framer-motion/client');
 const mongoose = require('mongoose');
 
 const MemberSchema = new mongoose.Schema({
@@ -58,14 +59,18 @@ const MemberSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+
   emergencyContactNumber: {
     type: String,
     required: true
   },
-  createdAt: {
+   photo: { type: String }, // ✅ New field
+ 
+createdAt: {
     type: Date,
     default: Date.now
   }
+    
 });
-
 module.exports = mongoose.model('Member', MemberSchema);
+

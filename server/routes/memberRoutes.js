@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const memberController = require('../controllers/memberController');
 
+
 // GET all members
 router.get('/', memberController.getAllMembers);
 
@@ -17,4 +18,7 @@ router.put('/:id', memberController.updateMember);
 // DELETE a member
 router.delete('/:id', memberController.deleteMember);
 
+
+
 module.exports = router;
+
